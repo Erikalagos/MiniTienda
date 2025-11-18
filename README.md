@@ -1,4 +1,10 @@
 # 🛍️ MiniTienda - Sistema de Gestión de Productos, Clientes y Pedidos
+<img width="1918" height="873" alt="productos" src="https://github.com/user-attachments/assets/412718d1-d243-4b6a-928a-85c0168e1f47" />
+<img width="1918" height="868" alt="nuevo_producto" src="https://github.com/user-attachments/assets/4ea68fc3-fe4d-4943-af39-c320a2809a88" />
+<img width="1918" height="881" alt="Nuevo_Cliente" src="https://github.com/user-attachments/assets/697139c9-cc17-496c-8bde-0c11a95630c8" />
+<img width="1918" height="875" alt="detalle_producto" src="https://github.com/user-attachments/assets/f71472b2-0dbd-4ac5-b648-30a824de9557" />
+<img width="1918" height="872" alt="clientes" src="https://github.com/user-attachments/assets/7a7d040f-5148-4ccf-9b1d-94af9624db2a" />
+<img width="1918" height="875" alt="categorias" src="https://github.com/user-attachments/assets/4acdce1b-32e8-4ff5-aaa1-fd96c4c5a542" />
 
 MiniTienda es una aplicación desarrollada con **Ionic + Angular** que se conecta a una **API REST en Node.js** con base de datos **SQL Server**.  
 Permite administrar productos, clientes, categorías y pedidos de una tienda de forma sencilla y visual.
@@ -59,13 +65,17 @@ Permite administrar productos, clientes, categorías y pedidos de una tienda de 
 
 ### 1. Clonar repositorio
 ```bash
-<img width="1918" height="873" alt="productos" src="https://github.com/user-attachments/assets/694bca90-1b05-4758-a7dc-e5dc4f1222a4" />
-<img width="1918" height="868" alt="nuevo_producto" src="https://github.com/user-attachments/assets/846dce75-0e65-4339-8494-972fd48b886a" />
-<img width="1918" height="881" alt="Nuevo_Cliente" src="https://github.com/user-attachments/assets/458d5dfc-7895-4905-928a-ed058cab8f99" />
-<img width="1918" height="875" alt="detalle_producto" src="https://github.com/user-attachments/assets/ef52939e-cf67-4ef2-b4fe-1247cb15abaa" />
-<img width="1918" height="872" alt="clientes" src="https://github.com/user-attachments/assets/f4ce94bd-5af3-4926-b0dd-debe648f74f0" />
-<img width="1918" height="875" alt="categorias" src="https://github.com/user-attachments/assets/4814866a-3feb-4977-90aa-0fd48f6ec8ca" />
-
-
 git clone https://github.com/Erikalagos/MiniTienda.git
 cd MiniTienda
+
+
+
+
+
+
+
+
+
+
+
+
