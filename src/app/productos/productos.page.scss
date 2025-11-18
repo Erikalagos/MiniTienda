@@ -1,0 +1,123 @@
+/* Fondo general oscuro */
+ion-content {
+  --background: #121212;
+  color: #f5f5f5;
+}
+
+/* Header oscuro */
+ion-toolbar {
+  --background: #1c1c1c;
+  --color: #ffffff;
+  border-bottom: 1px solid #2a2a2a;
+  font-weight: 600;
+}
+
+/* 🔎 Barra de búsqueda BLANCA */
+ion-searchbar {
+  --background: #ffffff;
+  --color: #000000;
+  --placeholder-color: #666666;
+  --icon-color: #666666;
+  border-radius: 10px;
+  margin: 8px 0 12px;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
+}
+
+/* Mensaje "no resultados" y contador */
+.no-results ion-text,
+.result-count ion-text {
+  color: #cfcfcf;
+}
+
+/* ====== TARJETAS DE PRODUCTO EN BLANCO ====== */
+ion-card {
+  background: #ffffff;         /* BLANCO */
+  color: #1a1a1a;              /* Texto oscuro */
+  border-radius: 14px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+  }
+}
+
+ion-card-header {
+  background: #fafafa;
+  border-bottom: 1px solid #eeeeee;
+
+  ion-card-title {
+    color: #111827; /* gris muy oscuro */
+    font-weight: 700;
+  }
+  ion-card-subtitle {
+    color: #6b7280; /* gris medio */
+    font-weight: 500;
+  }
+}
+
+ion-card-content {
+  p {
+    color: #1f2937;
+  }
+  p small {
+    color: #6b7280;
+  }
+}
+
+/* Footer dentro de la tarjeta (botones) */
+ion-footer {
+  background: #ffffff;
+  border-top: 1px solid #eeeeee;
+}
+
+/* Botones: mantienen colores sobre fondo blanco */
+ion-button[color="primary"] {
+  --background: #2563eb;          /* azul elegante */
+  --background-activated: #1e40af;
+}
+ion-button[color="warning"] {
+  --background: #f59e0b;          /* ámbar */
+  --background-activated: #b45309;
+  color: #111;
+}
+ion-button[color="danger"] {
+  --background: #ef4444;          /* rojo */
+  --background-activated: #991b1b;
+}
+
+/* Modal: seguimos con estilo oscuro interno */
+ion-modal {
+  --background: rgba(18, 18, 18, 0.96);
+  backdrop-filter: blur(8px);
+}
+ion-modal ion-toolbar {
+  --background: #1c1c1c;
+  --color: #ffffff;
+}
+ion-item {
+  --background: #1a1a1a;
+  --color: #f0f0f0;
+}
+ion-input,
+ion-textarea {
+  --background: #2a2a2a;
+  --color: #ffffff;
+  border-radius: 8px;
+}
+
+/* FAB (nuevo producto) con toquecito de brillo */
+ion-fab-button {
+  --background: linear-gradient(135deg, #4caf50, #00c853);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 200, 83, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.06);
+    box-shadow: 0 10px 20px rgba(0, 200, 83, 0.65);
+  }
+}

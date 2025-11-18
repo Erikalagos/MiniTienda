@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Pedidos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list lines="none">
+    <ion-item-sliding *ngFor="let pedido of pedidos">
+      <ion-card class="pedido-card">
+        <ion-card-content class="card-content">
+          <!-- Header del pedido -->
+          <div class="pedido-header">
+            <div class="pedido-number">
+              <ion-icon name="receipt" class="header-icon"></ion-icon>
+              <span class="numero">Pedido #{{pedido.IdPedido}}</span>
+            </div>
+            <ion-button fill="clear" size="small" [routerLink]="['/detalle-pedidos', pedido.IdPedido]" class="detail-btn">
+              <ion-icon name="chevron-forward" slot="icon-only"></ion-icon>
+            </ion-button>
+          </div>
+
+          <!-- Información principal -->
+          <div class="pedido-info">
+            <div class="info-row">
+              <ion-icon name="person" class="info-icon"></ion-icon>
+              <div class="info-text">
+                <span class="label">Cliente:</span>
+                <span class="value">{{pedido.NombreCompleto}}</span>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <ion-icon name="cube" class="info-icon"></ion-icon>
+              <div class="info-text">
+                <span class="label">Producto:</span>
+                <span class="value">{{pedido.ProductoNombre}}</span>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <ion-icon name="calendar" class="info-icon"></ion-icon>
+              <div class="info-text">
+                <span class="label">Fecha:</span>
+                <span class="value">{{pedido.FechaPedido | date:'dd/MM/yyyy'}}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer con cantidad -->
+          <div class="pedido-footer">
+            <div class="cantidad-tag">
+              <ion-icon name="bag-handle" class="cantidad-icon"></ion-icon>
+              <span class="cantidad-text">Cantidad: {{pedido.Cantidad}}</span>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

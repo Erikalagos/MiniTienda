@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="IrAtras()">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Detalle del Cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="cliente" [fullscreen]="true" class="ion-padding">
+  <ng-container>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ cliente.Nombre }} {{ cliente.Apellido }}</ion-card-title>
+        <ion-card-subtitle>Información completa del cliente</ion-card-subtitle>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item>
+            <ion-label><strong>ID Cliente:</strong></ion-label>
+            <ion-text>{{ cliente.IdCliente }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label><strong>Nombre:</strong></ion-label>
+            <ion-text>{{ cliente.Nombre }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label><strong>Apellido:</strong></ion-label>
+            <ion-text>{{ cliente.Apellido }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label><strong>Correo:</strong></ion-label>
+            <ion-text>{{ cliente.Correo }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label><strong>Teléfono:</strong></ion-label>
+            <ion-text>{{ cliente.Telefono }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label><strong>Dirección:</strong></ion-label>
+            <ion-text>{{ cliente.Direccion }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label><strong>Fecha de Registro:</strong></ion-label>
+            <ion-text>{{ cliente.FechaRegistro | date:'dd/MM/yyyy' }}</ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "NahunPalma_Tienda",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

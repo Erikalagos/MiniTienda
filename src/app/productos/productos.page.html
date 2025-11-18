@@ -1,0 +1,148 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Vista Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- Barra de búsqueda -->
+  <ion-searchbar
+    placeholder="Buscar productos..."
+    (ionInput)="buscarProductos($event)"
+    [value]="terminoBusqueda"
+    animated
+    clear-icon="close-circle"
+    (ionClear)="limpiarBusqueda()">
+  </ion-searchbar>
+
+  <!-- Mensaje cuando no hay resultados -->
+  <div *ngIf="productosFiltrados.length === 0 && terminoBusqueda" class="no-results">
+    <ion-text color="medium">
+      <p>No se encontraron productos para "{{terminoBusqueda}}"</p>
+    </ion-text>
+    <ion-button fill="clear" (click)="limpiarBusqueda()">Mostrar todos los productos</ion-button>
+  </div>
+
+  <!-- Contador de resultados -->
+  <div *ngIf="terminoBusqueda" class="result-count">
+    <ion-text color="primary">
+      <small>{{productosFiltrados.length}} producto(s) encontrado(s)</small>
+    </ion-text>
+  </div>
+
+  <!-- Grid de productos -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let producto of productosFiltrados">
+        <ion-card mode="ios">
+          <ion-card-header>
+            <ion-card-title>{{ producto.Nombre }}</ion-card-title>
+            <ion-card-subtitle>{{ producto.Categoria }}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <p><strong>Precio:</strong> L. {{ producto.Precio }}</p>
+            <p><strong>Stock:</strong> {{ producto.Stock }}</p>
+            <p><small>Registrado: {{ producto.FechaRegistro | date:'dd/MM/yyyy' }}</small></p>
+          </ion-card-content>
+
+          <ion-footer>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-button expand="full" color="primary"
+                              [routerLink]="['/detalle-productos', producto.IdProducto]">
+                    <ion-icon name="eye-outline" slot="start"></ion-icon>
+                    Ver
+                  </ion-button>
+                </ion-col>
+
+                <ion-col size="4">
+                  <ion-button expand="full" color="warning" (click)="abrirEditar(producto)">
+                    <ion-icon name="create-outline" slot="start"></ion-icon>
+                    Editar
+                  </ion-button>
+                </ion-col>
+
+                <ion-col size="4">
+                  <ion-button expand="full" color="danger" (click)="eliminarProducto(producto)">
+                    <ion-icon name="trash-outline" slot="start"></ion-icon>
+                    Eliminar
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-footer>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- MODAL EDITAR (todo el contenido va dentro del ng-template) -->
+  <ion-modal [isOpen]="modalAbierto" (didDismiss)="cerrarModal()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Editar Producto</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+        <form [formGroup]="formProducto" (ngSubmit)="guardarEdicion()">
+
+          <ion-item>
+            <ion-label position="stacked">Nombre</ion-label>
+            <ion-input formControlName="Nombre" placeholder="Nombre del producto"></ion-input>
+          </ion-item>
+          <ion-note color="danger" *ngIf="formProducto.get('Nombre')?.touched && formProducto.get('Nombre')?.invalid">
+            El nombre es obligatorio.
+          </ion-note>
+
+          <ion-item>
+            <ion-label position="stacked">Precio (L.)</ion-label>
+            <ion-input type="number" formControlName="Precio" placeholder="0.00"></ion-input>
+          </ion-item>
+          <ion-note color="danger" *ngIf="formProducto.get('Precio')?.touched && formProducto.get('Precio')?.invalid">
+            Precio inválido.
+          </ion-note>
+
+          <ion-item>
+            <ion-label position="stacked">Stock</ion-label>
+            <ion-input type="number" formControlName="Stock" placeholder="0"></ion-input>
+          </ion-item>
+          <ion-note color="danger" *ngIf="formProducto.get('Stock')?.touched && formProducto.get('Stock')?.invalid">
+            Stock inválido.
+          </ion-note>
+
+          <ion-item>
+            <ion-label position="stacked">IdCategoria</ion-label>
+            <ion-input type="number" formControlName="IdCategoria" placeholder="1"></ion-input>
+          </ion-item>
+
+          <ion-row class="ion-margin-top">
+            <ion-col size="6">
+              <ion-button expand="block" fill="outline" (click)="cerrarModal()">Cancelar</ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button expand="block" type="submit" [disabled]="formProducto.invalid || guardando">
+                {{ guardando ? 'Guardando...' : 'Guardar' }}
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <!-- FAB: debe estar FUERA del modal y DENTRO de ion-content -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/nuevo-producto']" aria-label="Nuevo producto">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

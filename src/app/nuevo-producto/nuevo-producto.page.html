@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nuevo Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input formControlName="Nombre"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="form.get('Nombre')?.touched && form.get('Nombre')?.invalid">
+      Nombre requerido
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="stacked">Precio (L.)</ion-label>
+      <ion-input type="number" formControlName="Precio"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Existencias</ion-label>
+      <ion-input type="number" formControlName="Stock"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Id Categoría</ion-label>
+      <ion-input type="number" formControlName="IdCategoria"></ion-input>
+    </ion-item>
+
+    <ion-row class="ion-margin-top">
+      <ion-col size="6">
+        <ion-button expand="block" fill="outline" routerLink="/productos">Cancelar</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" type="submit" [disabled]="form.invalid || guardando">
+          {{ guardando ? 'Guardando...' : 'Guardar' }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

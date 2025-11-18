@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="IrAtras()">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Detalle de la Categoría</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  
+  <!-- Estado de Carga -->
+  <div *ngIf="loading" class="loading-container">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando categoría...</p>
+  </div>
+
+  <!-- Estado de Error -->
+  <div *ngIf="error && !loading" class="error-container">
+    <ion-icon name="alert-circle-outline" color="danger"></ion-icon>
+    <p>{{ error }}</p>
+    <ion-button (click)="cargarCategoria()" fill="solid">
+      <ion-icon name="reload-outline" slot="start"></ion-icon>
+      Reintentar
+    </ion-button>
+  </div>
+
+  <!-- Datos de la Categoría -->
+  <ng-container *ngIf="categoria && !loading">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ categoria.Categoria }}</ion-card-title>
+        <ion-card-subtitle>Información completa de la categoría</ion-card-subtitle>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item>
+            <ion-label><strong>ID de Categoría:</strong></ion-label>
+            <ion-text>{{ categoria.IdCategoria }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label><strong>Nombre:</strong></ion-label>
+            <ion-text>{{ categoria.Categoria }}</ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

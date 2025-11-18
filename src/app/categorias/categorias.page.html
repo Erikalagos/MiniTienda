@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Categorías</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Categorías</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let categoria of categorias">
+      <ion-card>
+        <ion-card-header>
+          <ion-item lines="none">
+            <!-- Icono -->
+            <ion-avatar slot="start">
+              <ion-icon name="pricetag-outline" size="large" color="primary"></ion-icon>
+            </ion-avatar>
+
+            <!-- Contenido -->
+            <ion-label>
+              <h2><strong>{{ categoria.Nombre }}</strong></h2>
+              <p><strong>ID:</strong> {{ categoria.IdCategoria }}</p>
+              <p *ngIf="categoria.Descripcion"><strong>Descripción:</strong> {{ categoria.Descripcion }}</p>
+            </ion-label>
+
+            <!-- Botón ver detalle -->
+            <ion-button slot="end" [routerLink]="['/detalle-categorias', categoria.IdCategoria]" color="primary">
+              <ion-icon name="chevron-forward" slot="icon-only"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-card-header>
+      </ion-card>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
