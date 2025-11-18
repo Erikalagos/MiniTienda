@@ -59,7 +59,12 @@ Permite administrar productos, clientes, categorías y pedidos de una tienda de 
 
 ### 1. Clonar repositorio
 ```bash
-
+<img width="1918" height="873" alt="productos" src="https://github.com/user-attachments/assets/694bca90-1b05-4758-a7dc-e5dc4f1222a4" />
+<img width="1918" height="868" alt="nuevo_producto" src="https://github.com/user-attachments/assets/846dce75-0e65-4339-8494-972fd48b886a" />
+<img width="1918" height="881" alt="Nuevo_Cliente" src="https://github.com/user-attachments/assets/458d5dfc-7895-4905-928a-ed058cab8f99" />
+<img width="1918" height="875" alt="detalle_producto" src="https://github.com/user-attachments/assets/ef52939e-cf67-4ef2-b4fe-1247cb15abaa" />
+<img width="1918" height="872" alt="clientes" src="https://github.com/user-attachments/assets/f4ce94bd-5af3-4926-b0dd-debe648f74f0" />
+<img width="1918" height="875" alt="categorias" src="https://github.com/user-attachments/assets/4814866a-3feb-4977-90aa-0fd48f6ec8ca" />
 
 
 git clone https://github.com/Erikalagos/MiniTienda.git
